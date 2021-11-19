@@ -5,12 +5,15 @@ public class Person {
     private int körpergröße;
     private byte aktivitaetslevel;
 
+
     public Person(String vorname, String nachname, int körpergröße, byte aktivitaetslevel) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.körpergröße = körpergröße;
         this.aktivitaetslevel = aktivitaetslevel;
+
     }
+
 
     public String getVorname() {
         return vorname;
@@ -28,6 +31,7 @@ public class Person {
         return aktivitaetslevel;
     }
 
+
     public void setKörpergröße(int körpergröße) {
         this.körpergröße = körpergröße;
     }
@@ -39,36 +43,43 @@ public class Person {
 
     public String rechenBMI(int gewicht) {
 
-        double bmi = gewicht / ((körpergröße / 100) + (körpergröße / 100));
+
+        double bmi = (gewicht / ((körpergröße / 100) * (körpergröße / 100)));
 
         if (bmi < 18.5) {
             return "Untergewicht";
-        } else if (bmi < 25) {
+        } else if (bmi > 25) {
             return "Normalgewicht";
-        } else if (bmi < 30) {
+        } else if (bmi > 30) {
             return "Übergewicht";
         } else {
             return "Adipositas";
         }
+
     }
 
 
 
     public void printPerson(int gewicht){
 
-        if(aktivitaetslevel == 1){
-            System.out.println(String.format(getVorname()+ " " +   getNachname() + "," + " Couch Potato, " + rechenBMI(gewicht)));
+        System.out.println(vorname + " " + nachname + ", ");
+        switch (aktivitaetslevel){
+            case 1:
+                System.out.println("Couch Potato");
+                break;
+            case 2:
+                System.out.println("Gelegenheitssportler");
+                break;
+            case 3:
+                System.out.println("Sportler");
+                break;
+            case 4:
+                System.out.println("Profisportler");
+                break;
+            default:
+                System.out.println("no information");
         }
-
-        if (aktivitaetslevel == 2){
-            System.out.println(String.format(getVorname() + " " +   getNachname() + "," + " Gelegenheitssportler, " + rechenBMI(gewicht)));
-        }
-        if (aktivitaetslevel == 3){
-            System.out.println(String.format(getVorname() + " " +   getNachname() + "," + " Sportler, " + rechenBMI(gewicht)));
-        }
-        if (aktivitaetslevel == 4) {
-            System.out.println(String.format(getVorname() + " " +   getNachname() + "," + " Profisportler, " + rechenBMI(gewicht)));
-        }
+        System.out.println(", " + rechenBMI(gewicht));
     }
 
 
