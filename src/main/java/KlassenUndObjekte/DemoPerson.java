@@ -1,3 +1,5 @@
+package KlassenUndObjekte;
+
 public class DemoPerson {
 
     public static void main(String[] args) {

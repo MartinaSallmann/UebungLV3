@@ -2,6 +2,7 @@ package schleifenUndArrays;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class LottoZahlenApp {
 
@@ -10,9 +11,13 @@ public class LottoZahlenApp {
         int size;
         int maxNumber;
 
-        generateRandomNumbers(6,45);
+        int [] tipp = generateRandomNumbers(6,45);
+        for (int i : tipp){
+            System.out.println(i + " ");
+        }
+        System.out.println();
 
-
+        System.out.println("Tipp: " + Arrays.toString(tipp));
     }
 
     public static int[] generateRandomNumbers(int size, int maxNumber) {
